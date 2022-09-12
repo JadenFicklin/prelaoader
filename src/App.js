@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import GridLoader from "react-spinners/GridLoader";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 4500);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className={loading ? "loader-outer" : "loader-outer loader-outer-hidden"}
+    >
+      <GridLoader
+        color={"rgba(255, 255, 255, 0.859)"}
+        loading={loading}
+        size={30}
+      />
+      <div className="loader-test"></div>
     </div>
   );
 }
 
 export default App;
+
+// f37a24

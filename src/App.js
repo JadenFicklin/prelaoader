@@ -21,7 +21,7 @@ function App() {
         loading={loading}
         size={30}
       />
-      <div className="loader-test"></div>
+      <div className="loader-test">test</div>
     </div>
   );
 }
